@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Prediction Result</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='result.css')}}">
+</head>
+<body>
+    <h1>Heart Disease Prediction Result</h1>
+    <div class="info-container">
+        {% if prediction == 0 %}
+            <p>
+                Great news! No heart disease detected. Keep maintaining a healthy lifestyle.
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='img2.webp') }}" alt="Heart Result" class="result-image">
+                </div>
+
+            </p>
+        {% else %}
+            <p>
+                Warning! Heart disease detected. Please consult a healthcare provider for further evaluation.
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='img1.jpeg') }}" alt="Heart Result" class="result-image">
+                </div>
+            </p>
+        {% endif %}
+    </div>
+</body>
+</html>

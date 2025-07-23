@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <div class="header">
+    <h1>EXAMINING YOUR HEARTS !</h1>
+    <p>The goal of this project is to train a machine learning model to accurately predict whether a sample patient has been diagnosed with heart disease.</p>
+    <div class="logo-container">
+    <img src="{{ url_for('static', filename='img4.jpg') }}" alt="Heart Logo" class="logo-image">
+</div>
+  </div>
+
+  <form action="/predict" method="POST">
+    <div>
+    <label for="age">Age:</label>
+    <input type="number" name="age" placeholder="Age" required>
+    </div>
+    <div>
+    <label for="gender">Gender:</label>
+    <select name="gender" required>
+      <option value="1">Male(1)</option>
+      <option value="0">Female(0)</option>
+    </select>
+    </div>
+    <div>
+    <label for="chestpain">Chest Pain Type:</label>
+    <select name="chestpain" required>
+      <option value="0">Typical Angina(0)</option>
+      <option value="1">Atypical Angina(1)</option>
+      <option value="2">Non-anginal Pain(2)</option>
+      <option value="3">Asymptomatic(3)</option>
+    </select>
+    </div>
+    <div>
+    <label for="restingBP">Blood Pressure (mm Hg):</label>
+    <input type="number" name="restingBP" placeholder="Blood Pressure (mm Hg)" min="50" max="250" required>
+    </div>
+    <div>
+    <label for="serumcholestrol">Cholesterol (mg/dl):</label>
+    <input type="number" name="serumcholestrol" placeholder="Cholesterol (mg/dl)" required>
+    </div>
+    <div>
+    <label for="fastingbloodsugar">Fasting Blood Sugar:</label>
+    <select name="fastingbloodsugar" required>
+      <option value="1">> 120 mg/dl(1)</option>
+      <option value="0">≤ 120 mg/dl(0)</option>
+    </select>
+    </div>
+    <div>
+    <label for="restingrelectro">ECG Result:</label>
+    <select name="restingrelectro" required>
+      <option value="0">Normal(0)</option>
+      <option value="1">ST-T Wave Abnormality(1)</option>
+      <option value="2">Left Ventricular Hypertrophy(2)</option>
+    </select>
+    </div>
+    <div>
+    <label for="maxheartrate">Maximum Heart Rate Achieved:</label>
+    <input type="number" name="maxheartrate" placeholder="Max Heart Rate" min="60" max="220" required>
+    </div>
+    <div>
+    <label for="exerciseangia">Chest Pain During Exercise:</label>
+    <select name="exerciseangia" required>
+      <option value="1">Yes(1)</option>
+      <option value="0">No(0)</option>
+    </select>
+    </div>
+    <div>
+    <label for="oldpeak">ECG Drop After Exercise (Oldpeak):</label>
+    <input type="number" name="oldpeak" placeholder="Oldpeak" step="0.1" min="0" max="10" required>
+    </div>
+    <div>
+    <label for="slope">Slope of ST Segment:</label>
+    <select name="slope" required>
+      <option value="2">Flat (2)</option>
+      <option value="1">Upsloping (1)</option>
+      <option value="3">Downsloping (3)</option>
+    </select>
+    </div>
+    <div>
+    <label for="noofmajorvessels">Number of Major Vessels:</label>
+    <select name="noofmajorvessels" required>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+    </div>
+    <div class="full-width">
+      <input type="submit" value="ANALYZE">
+    </div>
+  </form>
+</body>
+</html>
